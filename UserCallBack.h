@@ -1,7 +1,6 @@
 #pragma once
 
 /** @file UserCallBack.h
-*  @note Hangzhou Hikvision System Technology Co., Ltd. All Rights Reserved.
 *  @brief 用户的事件通知。
 *  //使用说明
 *  @author xuhuajie
