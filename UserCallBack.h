@@ -20,6 +20,8 @@ public:
 	virtual void OnError(int fd,int errcode,const char**msg ) = 0;
 	//提取包，需要业务层返回解析出包的长度，或者舍弃一些不合格的包，成功解析出包返回true
 	virtual bool OnAnalyzePacket(int fd,const char* buff,int bufflen,int& packetlen,int &ignore) = 0;
-	//业务层处理包回调，如果需要返回包，可以直接在respond参数和respondlen参数返回，长度不得超过40960
+	//业务层处理包回调
+        //最新版本中函数内返回已废弃，即respond，respondlen未使用。原因是节省内存，业务层可以使用SendPacket接口返回。
+        //节省内存后，单台服务器可以开到3000的连接。如30*100的配置。
 	virtual void OnPacketArrived(int fd,const char* packet,int packetlen,char* respond,int& respondlen) = 0;
 };
